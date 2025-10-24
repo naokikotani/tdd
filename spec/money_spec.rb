@@ -1,5 +1,6 @@
 require 'rspec'
 require_relative '../lib/dollar'
+require_relative '../lib/franc'
 
 RSpec.describe Dollar do
   describe '#times' do
@@ -19,6 +20,15 @@ RSpec.describe Dollar do
 
       expect(five_a).to eq(five_b)
       expect(five_a).not_to eq(six)
+    end
+  end
+
+  describe '#Franctimes' do
+    it do
+      five = Franc.new(5)
+
+      expect(five.times(2)).to eq(Franc.new(10))
+      expect(five.times(3)).to eq(Franc.new(15))
     end
   end
 end
