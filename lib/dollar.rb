@@ -11,7 +11,7 @@ class Dollar
     amount == other.amount
   end
 
-  private
+  protected
 
   attr_reader :amount
 end
