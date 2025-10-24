@@ -1,6 +1,4 @@
 require 'rspec'
-require_relative '../lib/dollar'
-require_relative '../lib/franc'
 
 RSpec.describe Dollar do
   describe '#times' do
