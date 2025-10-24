@@ -5,11 +5,9 @@ RSpec.describe Dollar do
   describe '#times' do
     it do
       five = Dollar.new(5)
-      result = five.times(2)
-      expect(result.amount).to eq(10)
 
-      result = five.times(3);
-      expect(result.amount).to eq(15)
+      expect(five.times(2)).to eq(Dollar.new(10))
+      expect(five.times(3)).to eq(Dollar.new(15))
     end
   end
 
