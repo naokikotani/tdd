@@ -1,4 +1,6 @@
-class Franc
+require_relative './money'
+
+class Franc < Money
   def initialize(amount)
     @amount = amount
   end
@@ -6,12 +8,4 @@ class Franc
   def times(multiplier)
     Franc.new(amount * multiplier)
   end
-
-  def ==(other)
-    amount == other.amount
-  end
-
-  protected
-
-  attr_reader :amount
 end

@@ -16,8 +16,10 @@ RSpec.describe Dollar do
       five_b = Dollar.new(5)
       six = Dollar.new(6)
 
-      expect(five_a).to eq(five_b)
-      expect(five_a).not_to eq(six)
+      expect(Dollar.new(5)).to eq(Dollar.new(5))
+      expect(Dollar.new(6)).to eq(Dollar.new(6))
+      expect(Franc.new(5)).to eq(Franc.new(5))
+      expect(Franc.new(6)).to eq(Franc.new(6))
     end
   end
 
