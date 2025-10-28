@@ -7,11 +7,11 @@ class Money
   def ==(object)
     return false unless object.is_a?(Money)
 
-    amount == object.amount && self.class == object.class
+    amount == object.amount && currency == object.currency
   end
 
   def times(multiplier)
-    raise NotImplementedError
+    Money.new(amount * multiplier, currency)
   end
 
   def currency

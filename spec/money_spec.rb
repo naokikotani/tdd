@@ -20,6 +20,10 @@ RSpec.describe Dollar do
       expect(Money.franc(6)).to eq(Money.franc(6))
       expect(Money.franc(5)).not_to eq(Money.dollar(5))
     end
+
+    it do
+      expect(Money.new(10, 'CHF')).to eq(Franc.new(10, 'CHF'))
+    end
   end
 
   describe '#Franctimes' do
