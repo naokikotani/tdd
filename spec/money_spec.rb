@@ -1,6 +1,6 @@
 require 'rspec'
 
-RSpec.describe Dollar do
+RSpec.describe Money do
   describe '#times' do
     it do
       five = Money.dollar(5)
@@ -16,22 +16,7 @@ RSpec.describe Dollar do
     it do
       expect(Money.dollar(5)).to eq(Money.dollar(5))
       expect(Money.dollar(6)).to eq(Money.dollar(6))
-      expect(Money.franc(5)).to eq(Money.franc(5))
-      expect(Money.franc(6)).to eq(Money.franc(6))
       expect(Money.franc(5)).not_to eq(Money.dollar(5))
-    end
-
-    it do
-      expect(Money.new(10, 'CHF')).to eq(Franc.new(10, 'CHF'))
-    end
-  end
-
-  describe '#Franctimes' do
-    it do
-      five = Money.franc(5)
-
-      expect(five.times(2)).to eq(Money.franc(10))
-      expect(five.times(3)).to eq(Money.franc(15))
     end
   end
 
