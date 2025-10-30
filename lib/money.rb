@@ -1,4 +1,6 @@
 class Money
+  include Expression
+
   def initialize(amount, currency)
     @amount = amount
     @currency = currency
@@ -16,6 +18,10 @@ class Money
 
   def currency
     @currency
+  end
+
+  def plus(addend)
+    Money.new(amount + addend.amount, currency)
   end
 
   class << self

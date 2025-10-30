@@ -26,4 +26,14 @@ RSpec.describe Money do
       expect(Money.franc(1).currency).to eq('CHF')
     end
   end
+
+  describe '#plus' do
+    it do
+      five = Money.dollar(5)
+      sum = five.plus(five)
+      bank = Bank.new
+      reduce = bank.reduce(sum, 'USD')
+      expect(reduce).to eq(Money.dollar(10))
+    end
+  end
 end
