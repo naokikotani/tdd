@@ -1,6 +1,8 @@
 class Money
   include Expression
 
+  attr_reader :amount
+
   def initialize(amount, currency)
     @amount = amount
     @currency = currency
@@ -21,7 +23,11 @@ class Money
   end
 
   def plus(addend)
-    Money.new(amount + addend.amount, currency)
+    Sum.new(self, addend)
+  end
+
+  def reduce(to)
+    self
   end
 
   class << self
@@ -33,8 +39,4 @@ class Money
       Money.new(amount, 'CHF')
     end
   end
-
-  protected
-
-  attr_reader :amount
 end

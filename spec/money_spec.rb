@@ -7,8 +7,6 @@ RSpec.describe Money do
 
       expect(five.times(2)).to eq(Money.dollar(10))
       expect(five.times(3)).to eq(Money.dollar(15))
-
-      five = Money.franc(5)
     end
   end
 
@@ -34,6 +32,31 @@ RSpec.describe Money do
       bank = Bank.new
       reduce = bank.reduce(sum, 'USD')
       expect(reduce).to eq(Money.dollar(10))
+    end
+
+    it do
+      five = Money.dollar(5)
+      sum = five.plus(five)
+
+      expect(sum.augend).to eq(five)
+      expect(sum.addend).to eq(five)
+    end
+  end
+
+  describe '#reduce' do
+    it do
+      sum = Sum.new(Money.dollar(3), Money.dollar(4))
+      bank = Bank.new
+      result = bank.reduce(sum, "USD")
+
+      expect(result).to eq(Money.dollar(7))
+    end
+
+    it do
+      bank = Bank.new
+      result = bank.reduce(Money.dollar(1), 'USD')
+
+      expect(result).to eq(Money.dollar(1))
     end
   end
 end
