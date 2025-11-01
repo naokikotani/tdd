@@ -59,4 +59,20 @@ RSpec.describe Money do
       expect(result).to eq(Money.dollar(1))
     end
   end
+
+  describe 'reduceMoneyDifferentCurrency' do
+    it do
+      bank = Bank.new()
+      bank.addRate("CHF", "USD", 2)
+      result = bank.reduce(Money.franc(2), "USD")
+
+      expect(result).to eq(Money.dollar(1))
+    end
+  end
+
+  describe '#rate' do
+    it do
+      expect(Bank.new.rate('USD', 'USD')).to eq(1)
+    end
+  end
 end
